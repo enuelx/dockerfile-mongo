@@ -1,12 +1,10 @@
-pipeline {
-    agent {
-        docker.withRegistry("", "DockerHubCredentials") {
-            docker { image 'node:7-alpine' }
+node('') {
+    env.ARTIFACT_ID = "emmamaidana:ubuntu/latest"
+    echo "${env.ARTIFACT_ID}"
+    docker.withRegistry("", "DockerHubCredentials") {
+        stage('Build') {
+            dockerImage = docker.build("${env.ARTIFACT_ID}")
         }
-    }
-    stage('Test') {
-        steps {
-            sh 'node --version'
-        }
+            
     }
 }
