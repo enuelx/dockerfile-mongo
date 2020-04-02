@@ -4,13 +4,14 @@ node {
     }
 
     stages {
-    stage('Build') {
-      steps {
-        script {
-          dir("ubuntu") {
-            dockerImage = docker.build "${env.ARTIFACT_ID}"
-          }
+        stage('Build') {
+        steps {
+            script {
+            dir("ubuntu") {
+                dockerImage = docker.build "${env.ARTIFACT_ID}"
+            }
+            }
         }
-      }
+        }
     }
 }
