@@ -4,12 +4,7 @@ node {
     }
 
     stage('Build') {
-      steps {
-        script {
-          dir("ubuntu") {
-            dockerImage = docker.build "${env.ARTIFACT_ID}"
-          }
-        }
-      }
+        dockerImage = docker.build "${env.ARTIFACT_ID}"
+        echo "${dockerImage}"
     }
 }
