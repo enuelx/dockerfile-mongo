@@ -1,5 +1,5 @@
 node {
-    env.ARTIFACT_ID = "emmamaidana/ubuntu:${env.BUILD_NUMBER}"
+    env.ARTIFACT_ID = "emmamaidana/ubuntu:latest"
 
     stage('Build') {
         dockerImage = docker.build("${env.ARTIFACT_ID}")
