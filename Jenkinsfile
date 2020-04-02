@@ -3,7 +3,7 @@ node('') {
     echo "${env.ARTIFACT_ID}"
     docker.withRegistry("", "DockerHubCredentials") {
         checkout scm
-        docker.image('my-custom-image').inside {
+        docker.image('Dockerfile').inside {
             sh 'make test'
         }
         // stage('Build') {
